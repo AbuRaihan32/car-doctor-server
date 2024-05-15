@@ -32,7 +32,7 @@ const tokenVerify = async (req, res, next) => {
     if (err) {
       console.log(err);
       return res.status(401).send({ message: "UnAuthorized" });
-    }
+    } 
     // decoded
     req.user = decoded;
     next();
@@ -81,6 +81,9 @@ async function run() {
       console.log("hello");
       res.clearCookie("token", { ...cookieOptions, maxAge: 0 }).send({ status: true });
     });
+
+
+
 
     //! get all services
     app.get("/services", async (req, res) => {
